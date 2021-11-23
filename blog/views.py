@@ -53,4 +53,9 @@ def data(request):
             ls.append(j)
         test_data.append(ls)
    
-    return render(request, 'blog/download.html', {'test_data': test_data})
+    return render(request, 'blog/data.html', {'test_data': test_data})
+
+
+def download(request):
+    
+    return render(request, 'blog/download.html')
