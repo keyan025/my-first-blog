@@ -41,3 +41,16 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def data(request):
+    from pandas import read_excel
+    data_set = read_excel("E:\\result.xlsx")
+    data = data_set.values[:, :]
+    test_data = []
+    for line in data:
+        ls=[]
+        for j in line:
+            ls.append(j)
+        test_data.append(ls)
+   
+    return render(request, 'blog/download.html', {'test_data': test_data})
